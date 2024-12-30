@@ -1,0 +1,71 @@
+@use "../../assets/styles/variables.scss" as *;
+.slide {
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.slide .content {
+  position: absolute;
+  bottom: 215px;
+  left: 64px;
+  color: $white;
+  background: linear-gradient(45deg, $primary950, $primary400);
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.slide .content h1 {
+  font-size: 36px;
+  font-weight: 700;
+}
+.slide .content p {
+  font-size: 18px;
+}
+button.prev-button,
+button.next-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba($black100, 0.5);
+  color: $white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    background-color: rgba($black100, 0.8);
+  }
+}
+
+button.prev-button {
+  left: 10px;
+}
+
+button.next-button {
+  right: 10px;
+}
+
+.dots {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  margin: 0 5px;
+  background-color: $gray100;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dot.active {
+  background: $primary600;
+}

@@ -1,0 +1,38 @@
+@use "../../assets/styles/variables.scss" as *;
+.navbar-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background: $gray100;
+  padding: 0 64px;
+}
+.user-cart-container {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.logo img {
+  max-width: 250px;
+}
+.nav-list-items {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.nav-list-items li {
+  font-family: poppins;
+  font-size: 16px;
+
+  list-style-type: none;
+}
+.nav-list-items a {
+  text-decoration: none;
+  color: $gray900;
+  transition: all 0.5s;
+}
+
+.nav-list-items a:hover {
+  color: $primary900;
+}

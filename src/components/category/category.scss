@@ -1,0 +1,35 @@
+@use "../../assets/styles/variables.scss" as *;
+.category-container {
+  padding: 12px 64px;
+  h1 {
+    margin-bottom: 32px;
+  }
+}
+.category-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  flex-wrap: wrap;
+
+  span {
+    background: $primary200;
+    border-radius: 8px;
+    min-height: 100px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-direction: column-reverse;
+    transition: all 0.5s;
+    border: 1px solid rgba($black100, 0);
+    font-weight: 500;
+    color: $primary950;
+
+    &:hover {
+      background: $primary100;
+      border: 1px solid $primary200;
+      // color: $white;
+    }
+  }
+}

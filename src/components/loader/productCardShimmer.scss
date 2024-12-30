@@ -1,0 +1,80 @@
+.shimmer-loader {
+  width: 100%;
+  max-width: 400px;
+  padding: 16px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  &__content {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  &__image,
+  &__title,
+  &__brand,
+  &__price,
+  &__discount,
+  &__button {
+    background: #f0f0f0;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 4px;
+  }
+
+  &__image {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+  }
+
+  &__details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__title {
+    height: 24px;
+    width: 100%;
+  }
+
+  &__brand {
+    height: 18px;
+    width: 60%;
+  }
+
+  &__price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__price {
+    height: 20px;
+    width: 60px;
+  }
+
+  &__discount {
+    height: 24px;
+    width: 96px;
+  }
+
+  &__button {
+    height: 40px;
+    width: 100%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

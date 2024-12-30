@@ -1,0 +1,27 @@
+@use "../../assets/styles/variables.scss" as *;
+
+.btn {
+  background: $primary900;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 10000px;
+  font-family: poppins;
+  color: $white;
+  font-size: 12px;
+  transition: all 0.5s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn:hover {
+  opacity: 0.8;
+  transition: 0.3s delay 0s;
+}
+.btn-icon-text-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}

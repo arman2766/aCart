@@ -1,0 +1,97 @@
+@use "../../assets/styles/variables.scss" as *;
+
+.searchbar {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+}
+.searchbar input[type="search"] {
+  padding: 10px 12px 10px 35px;
+  border: 1px solid $gray300;
+  outline: none;
+  border-radius: 6px;
+  min-width: 350px;
+  width: 100%;
+}
+.searchbar input[type="search"]::placeholder {
+  font-family: poppins;
+  font-size: 12px;
+}
+.search-icon {
+  position: relative;
+  left: 30px;
+}
+.search-compass {
+  color: $gray400;
+  height: 20px;
+}
+.searched-data-container {
+  background-color: $gray150;
+  border-radius: 8px;
+  margin: 12px;
+  position: absolute;
+  z-index: 2;
+  top: 34px;
+  left: 12px;
+  max-height: 400px;
+  min-width: 350px;
+  overflow-y: scroll;
+}
+.searched-data-container .search-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1px solid $gray100;
+  padding: 12px;
+  &:hover {
+    background: $primary50;
+  }
+}
+
+.searched-data-container img {
+  width: 80px;
+}
+
+.search-item .content {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-item .content {
+  .name {
+    color: $black100;
+    font-size: 12px;
+  }
+  .price {
+    font-size: 12px;
+  }
+  .category {
+    color: $white;
+    font-size: 8px;
+    background: $green200;
+    // background: linear-gradient(45deg, #131b9c, #b5ceff);
+    width: fit-content;
+    border-radius: 4px;
+    padding: 2px 8px;
+  }
+  .review {
+    font-size: 9px;
+  }
+}
+
+.add-to-cart {
+  padding: 10px;
+  height: 40px;
+  width: 40px;
+}
+.result-not-found {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: space-evenly;
+  min-height: 120px;
+  p {
+    color: $black50;
+  }
+}

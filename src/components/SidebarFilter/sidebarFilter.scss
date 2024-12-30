@@ -1,0 +1,41 @@
+.sidebar-filter {
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filter-section {
+  margin-bottom: 20px;
+}
+
+.filter-section h4 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.filter-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.filter-section li {
+  margin-bottom: 10px;
+}
+
+.filter-footer {
+  text-align: center;
+}
+
+.filter-footer button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filter-footer button:hover {
+  background-color: #0056b3;
+}

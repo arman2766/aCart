@@ -1,0 +1,23 @@
+@use ".../../../../assets/styles/variables" as *;
+
+.top-navbar-container {
+  background: $primary900;
+  display: flex;
+  gap: 56px;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 8px 64px;
+}
+.top-nav-left,
+.top-nav-center,
+.top-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.top-navbar-container p {
+  color: $white;
+  font-family: Poppins;
+  font-size: 14px;
+  line-height: 16px;
+}

@@ -1,0 +1,61 @@
+@use ".../../../../assets/styles/variables.scss" as *;
+.product-info-container {
+  display: flex;
+  gap: 56px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 64px;
+  .img-container {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .content-container {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    .img-multiple {
+      display: flex;
+      align-items: center;
+    }
+
+    .title {
+      font-size: 44px;
+      font-weight: 600;
+    }
+    .des {
+      font-size: 21px;
+      font-weight: 400;
+    }
+    .btn-cart {
+      width: 180px;
+    }
+    .brand {
+      width: max-content;
+      background: $primary900;
+      color: $white;
+      border-radius: 10000px;
+      padding: 2px 19px;
+      font-size: 14px;
+    }
+  }
+}
+.single-img {
+  width: 100px !important;
+  height: 100px !important;
+  object-fit: contain;
+  padding: 10px;
+  margin-inline: 5px;
+  border: 1px solid transparent;
+  transition: all 0.5s;
+  cursor: pointer;
+  &:hover {
+    border: 1px solid $gray400;
+  }
+  &.active {
+    border: 1px solid $black50;
+  }
+}
