@@ -35,6 +35,12 @@
         font-size: 12px;
         font-weight: 400;
       }
+      .quick-view {
+        &:hover {
+          color: $primary700;
+          cursor: pointer;
+        }
+      }
     }
   }
 }

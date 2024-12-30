@@ -1,12 +1,20 @@
+import { Fullscreen } from "lucide-react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useProductData from "../../hooks/useProductData";
+import QuickViewModal from "../../quickViewModal/QuickViewModal";
 import CustomButton from "../customButton/CustomButton";
 import ProductCardShimmer from "../loader/ProductCardShimmer";
 import "./productCard.scss";
 
 export const ProductCard = () => {
   const { data, loading, error } = useProductData();
+  const [quickProductView, setQuickProductView] = useState(false);
   const navigate = useNavigate();
+
+  const handleQuickProductView = () => {
+    setQuickProductView((prev) => !prev);
+  };
 
   if (error) return <p>Error loading products: {error.message}</p>;
 
@@ -56,11 +64,18 @@ export const ProductCard = () => {
                     className="no-bg"
                     onClick={() => navigate(`/productInfo/${product.id}`)}
                   />
+                  <Fullscreen
+                    onClick={handleQuickProductView}
+                    className="quick-view"
+                  />
                   <CustomButton text="Add to Cart" />
                 </div>
               </div>
             ))}
       </div>
+      {quickProductView && (
+        <QuickViewModal handleQuickProductView={handleQuickProductView} />
+      )}
     </>
   );
 };

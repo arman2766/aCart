@@ -6,8 +6,6 @@ const useProductData = (id) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  console.log("productid", id);
-
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);

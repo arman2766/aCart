@@ -12,8 +12,6 @@ const ProductInfo = () => {
   const { id } = useParams();
   const { data: product, loading } = useProductData(id);
 
-  console.log("first product", product);
-
   // State to track the current thumbnail
   const [currentThumbnail, setCurrentThumbnail] = useState(null);
 
@@ -41,6 +39,7 @@ const ProductInfo = () => {
                 {product?.images?.map((image, i) => (
                   <img
                     src={image}
+                    loading="lazy"
                     alt={`Product image ${i}`}
                     className={`single-img ${
                       currentThumbnail === image ? "active" : ""
