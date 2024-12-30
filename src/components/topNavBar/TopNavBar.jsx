@@ -1,5 +1,5 @@
 import { CirclePercent, Repeat, Truck } from "lucide-react";
-import "./TopNavBar.scss";
+import "./topNavBar.scss";
 export const TopNavBar = () => {
   return (
     <>
