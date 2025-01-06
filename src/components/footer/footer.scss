@@ -1,0 +1,43 @@
+@use "../../assets/styles/variables.scss" as *;
+
+.footer-container {
+  background: $primary200;
+  padding: 64px;
+  margin-top: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  .social-media {
+    display: flex;
+    gap: 20px;
+    a {
+      color: $black100;
+    }
+    a:hover {
+      color: $primary900;
+    }
+  }
+  .copyright {
+    p {
+      color: $black100;
+    }
+  }
+}
+.footer-list-item {
+  li {
+    list-style-type: none;
+    display: flex;
+    gap: 56px;
+
+    a {
+      text-decoration: none;
+      color: $black100;
+    }
+    a:hover {
+      text-decoration: underline;
+      color: $primary900;
+    }
+  }
+}
