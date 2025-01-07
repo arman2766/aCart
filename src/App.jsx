@@ -3,7 +3,7 @@ import "./index.css";
 import Home from "./pages/home/Home";
 import NoPage from "./pages/noPage/NoPage";
 import ProductInfo from "./pages/productInfo/ProductInfo";
-import Login from "./pages/registration/login";
+import Login from "./pages/registration/Login";
 import SignUp from "./pages/registration/SignUp";
 import Shop from "./pages/shop/Shop";
 
