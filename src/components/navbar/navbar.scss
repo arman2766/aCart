@@ -11,6 +11,9 @@
   display: flex;
   gap: 32px;
   align-items: center;
+  .user {
+    cursor: pointer;
+  }
 }
 
 .logo img {

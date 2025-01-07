@@ -1,9 +1,11 @@
 import { CircleUser, ShoppingCart } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/images/svg/aCart-Logo.svg";
 import { SearchBar } from "../searchBar/SearchBar";
 import "./navbar.scss";
 export const Navbar = () => {
+  const navigation = useNavigate();
+
   const navList = (
     <ul className="nav-list-items">
       <li>
@@ -35,7 +37,11 @@ export const Navbar = () => {
         <SearchBar />
         <div className="user-cart-container">
           <span className="user">
-            <CircleUser />
+            <CircleUser
+              onClick={() => {
+                navigation("/login");
+              }}
+            />
           </span>
           <span className="cart">
             <ShoppingCart />
