@@ -1,0 +1,109 @@
+@use "../../assets/styles/variables.scss" as *;
+
+.login-container {
+  background: linear-gradient(90deg, $primary200, $primary900);
+  height: 100vh;
+  .inner-container {
+    display: flex;
+    gap: 24px;
+    justify-content: space-between;
+    align-items: center;
+
+    // background: rgba(255, 255, 255, 0.05);
+    // backdrop-filter: blur(200px);
+    // border: 1px solid #f8f8f833;
+    background: $white;
+    width: 70%;
+    position: relative;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    border-radius: 12px;
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      width: 40%;
+      padding: 24px;
+      .logo {
+        height: 100px;
+        width: 200px;
+        object-fit: contain;
+      }
+    }
+    .img {
+      width: 60%;
+    }
+    .form {
+      display: flex;
+      gap: 12px;
+      flex-direction: column;
+      .password-show-hide {
+        cursor: pointer;
+      }
+      .line {
+        border: 1px solid $primary900;
+        max-width: 30px;
+      }
+      .forgot-password {
+        color: $primary900;
+      }
+      span {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        a {
+          color: $primary900;
+        }
+      }
+      input[type="text"],
+      input[type="password"],
+      input[type="email"] {
+        padding: 12px;
+        border-radius: 100000px;
+        border: 1px solid $gray200;
+        margin-bottom: 12px;
+        transition: all 0.5s;
+        &:focus {
+          outline: none;
+          border: 1px solid $primary200;
+        }
+      }
+    }
+
+    img {
+      height: 500px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    width: 100%;
+    .inner-container {
+      width: 90%;
+      .form-container {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .login-container {
+    flex-direction: column;
+    .inner-container {
+      width: 100%;
+      border-radius: 0;
+      height: 100vh;
+      .form-container {
+        width: 100%;
+      }
+      .img {
+        display: none;
+      }
+    }
+  }
+}
