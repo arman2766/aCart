@@ -30,6 +30,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      .view-details-quick-view-container {
+        display: flex;
+        gap: 16px;
+      }
       .price-container .f-price {
         color: $gray900;
         font-size: 12px;
@@ -46,6 +50,15 @@
 }
 
 .content-container {
+  .price-container {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .actual-price {
+    text-decoration: line-through;
+    color: $danger300;
+  }
   .discount {
     background: $green200;
     color: $white;
@@ -67,6 +80,7 @@ hr {
 .no-bg {
   background: none;
   color: $primary600;
+  padding: 0;
   transition: all 0.5s;
   &:hover {
     color: $primary800;

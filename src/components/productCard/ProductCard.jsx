@@ -38,10 +38,18 @@ export const ProductCard = () => {
                     <p className="band">
                       {product.brand ? product.brand : "Unavailable"}
                     </p>
-                    <p className="actual-price">
-                      $ {Math.round(product.price)}
-                    </p>
-
+                    <span className="price-container">
+                      <p className="actual-price">
+                        $ {Math.round(product.price)}
+                      </p>
+                      <p className="price">
+                        Final Price $
+                        {Math.round(
+                          product.price -
+                            (product.price * product.discountPercentage) / 100
+                        )}
+                      </p>
+                    </span>
                     <p className="discount">
                       Discount {product.discountPercentage}%
                     </p>
@@ -49,25 +57,18 @@ export const ProductCard = () => {
                 </div>
                 <hr />
                 <div className="price-add-to-cart-container">
-                  <span className="price-container">
-                    <p className="f-price">Final Price</p>
-                    <p className="price">
-                      $
-                      {Math.round(
-                        product.price -
-                          (product.price * product.discountPercentage) / 100
-                      )}
-                    </p>
+                  <span className="view-details-quick-view-container">
+                    <CustomButton
+                      text="View Details"
+                      className="no-bg"
+                      onClick={() => navigate(`/productInfo/${product.id}`)}
+                    />
+                    <Fullscreen
+                      onClick={handleQuickProductView}
+                      className="quick-view"
+                    />
                   </span>
-                  <CustomButton
-                    text="View Details"
-                    className="no-bg"
-                    onClick={() => navigate(`/productInfo/${product.id}`)}
-                  />
-                  <Fullscreen
-                    onClick={handleQuickProductView}
-                    className="quick-view"
-                  />
+
                   <CustomButton text="Add to Cart" />
                 </div>
               </div>
