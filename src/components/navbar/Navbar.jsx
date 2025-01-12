@@ -37,6 +37,14 @@ export const Navbar = () => {
     navigation("/login");
   };
 
+  const handleDashboard = () => {
+    if (user?.role === "admin") {
+      navigation("/admin-dashboard");
+    } else {
+      navigation("/user-dashboard");
+    }
+  };
+
   return (
     <>
       <nav className="navbar-container">
@@ -48,12 +56,7 @@ export const Navbar = () => {
         <div className="nav-list">{navList}</div>
         <SearchBar />
         <div className="user-cart-container">
-          <span
-            className="user"
-            onClick={() => {
-              navigation("/user-dashboard");
-            }}
-          >
+          <span className="user" onClick={handleDashboard}>
             <CircleUser />
             {user?.name}
           </span>
