@@ -2,7 +2,13 @@ import { CircleCheckBig, CircleX } from "lucide-react";
 import CustomButton from "../customButton/CustomButton";
 import "./confirmModalBox.scss";
 
-const ConfirmModalBox = ({ onClose, redirect, userName }) => {
+const ConfirmModalBox = ({
+  title,
+  description,
+  onClose,
+  redirect,
+  userName,
+}) => {
   return (
     <>
       <div className="overlay"></div>
@@ -11,8 +17,10 @@ const ConfirmModalBox = ({ onClose, redirect, userName }) => {
         <div className="content">
           <CircleCheckBig className="success-icon" size={36} />
           <h1>
-            Sign-Up Successful!
-            <p>{userName} account has been created. Welcome aboard!</p>
+            {title}
+            <p>
+              {userName} {description}
+            </p>
           </h1>
           <CustomButton text="OKAY" onClick={redirect} />
         </div>

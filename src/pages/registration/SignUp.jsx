@@ -1,5 +1,6 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { addDoc, collection, Timestamp } from "firebase/firestore";
+import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import SignUpImg from "../../assets/images/jpg/login-img.jpg";
@@ -10,6 +11,7 @@ import { Loader } from "../../components/loader/Loader";
 import { auth, fireDB } from "../../firebase/FirebaseConfig";
 const SignUp = () => {
   const navigation = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [confirmModal, setConfirmModal] = useState(false);
   const [userSignup, setUserSignup] = useState({
@@ -74,10 +76,16 @@ const SignUp = () => {
     navigation("/login");
   };
 
+  const handlePasswordToggle = () => {
+    setShowPassword((prev) => !prev);
+  };
+
   return (
     <>
       {confirmModal && (
         <ConfirmModalBox
+          title="Sign-Up Successful!"
+          description="account has been created. Welcome aboard!"
           onClose={handleConfirmModal}
           redirect={handleRedirect}
           userName={userSignup.name || "Your"}
@@ -86,7 +94,9 @@ const SignUp = () => {
       <div className="login-container">
         <div className="inner-container">
           <div className="form-container">
-            <img src={Logo} alt="" className="logo" />
+            <Link to="/">
+              <img src={Logo} alt="" className="logo" />
+            </Link>
             <form className="form">
               <h2>Sign Up</h2>
               <span className="line"></span>
@@ -106,15 +116,26 @@ const SignUp = () => {
                   setUserSignup({ ...userSignup, email: e.target.value });
                 }}
               />
+
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 placeholder="Password"
+                className="password"
                 value={userSignup.password}
                 onChange={(e) => {
                   setUserSignup({ ...userSignup, password: e.target.value });
                 }}
               />
-              <span></span>
+              <span
+                onClick={handlePasswordToggle}
+                className="password-show-hide"
+              >
+                {showPassword ? (
+                  <EyeOff className="eye" />
+                ) : (
+                  <Eye className="eye" />
+                )}
+              </span>
               <span>
                 <p>Already have an account?</p>
                 <Link to="/login">Login</Link>

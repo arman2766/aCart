@@ -25,6 +25,18 @@ export const Navbar = () => {
       </li>
     </ul>
   );
+
+  const user = JSON.parse(localStorage.getItem("users"));
+
+  const handleSignUp = () => {
+    navigation("/signup");
+  };
+
+  const handleSignOut = () => {
+    localStorage.removeItem("users");
+    navigation("/login");
+  };
+
   return (
     <>
       <nav className="navbar-container">
@@ -36,12 +48,21 @@ export const Navbar = () => {
         <div className="nav-list">{navList}</div>
         <SearchBar />
         <div className="user-cart-container">
-          <span className="user">
-            <CircleUser
-              onClick={() => {
-                navigation("/login");
-              }}
-            />
+          <span
+            className="user"
+            onClick={() => {
+              navigation("/user-dashboard");
+            }}
+          >
+            <CircleUser />
+            {user?.name}
+          </span>
+          <span className="sign-up sign-out">
+            {!user ? (
+              <span onClick={handleSignUp}>Sign Up</span>
+            ) : (
+              <span onClick={handleSignOut}>Sign Out</span>
+            )}
           </span>
           <span className="cart">
             <ShoppingCart />
