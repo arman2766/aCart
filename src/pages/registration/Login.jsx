@@ -1,3 +1,4 @@
+import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import LoginImg from "../../assets/images/jpg/login-img.jpg";
@@ -24,12 +25,17 @@ const Login = () => {
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="Password"
+                className="password"
               />
               <span
                 onClick={handlePasswordToggle}
                 className="password-show-hide"
               >
-                {showPassword ? "Hide" : "Show"}
+                {showPassword ? (
+                  <EyeOff className="eye" />
+                ) : (
+                  <Eye className="eye" />
+                )}
               </span>
               {/* <span className="forgot-password">Forgot Password?</span> */}
               <span>

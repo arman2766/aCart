@@ -1,4 +1,4 @@
 import "./loader.scss";
-export const Loader = () => {
-  return <div className="loader"></div>;
+export const Loader = ({ className }) => {
+  return <div className={`loader ${className}`}></div>;
 };
