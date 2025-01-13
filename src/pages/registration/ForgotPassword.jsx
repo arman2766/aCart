@@ -1,6 +1,7 @@
 import { sendPasswordResetEmail } from "firebase/auth";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import Logo from "../../assets/images/svg/aCart-Logo.svg";
 import ConfirmModalBox from "../../components/confirmModalBox/ConfirmModalBox";
 import CustomButton from "../../components/customButton/CustomButton";
@@ -16,9 +17,13 @@ const ForgotPassword = () => {
 
   const handleForgotPassword = async (e) => {
     e.preventDefault();
-    if (useLogin.email === "") {
-      return alert("Please enter your email address");
+    if (
+      useLogin.email === "" ||
+      !/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(useLogin.email)
+    ) {
+      return toast.error("Please enter a valid email address");
     }
+
     setLoading(true);
     try {
       await sendPasswordResetEmail(auth, useLogin.email);
@@ -37,7 +42,7 @@ const ForgotPassword = () => {
         {confirmModal && (
           <ConfirmModalBox
             title="Password reset successfully"
-            description="Password reset email sent! Please check your inbox."
+            description="Reset link has been sent to your email! Please check your inbox."
             onClose={() => {
               setConfirmModal(false);
             }}

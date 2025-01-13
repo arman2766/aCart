@@ -1,4 +1,7 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from "firebase/auth";
 import { addDoc, collection, Timestamp } from "firebase/firestore";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
@@ -12,6 +15,7 @@ const SignUp = () => {
   const navigation = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [emailSent, setEmailSent] = useState(false);
   const [confirmModal, setConfirmModal] = useState(false);
   const [userSignup, setUserSignup] = useState({
     name: "",
@@ -36,6 +40,10 @@ const SignUp = () => {
         userSignup.email,
         userSignup.password
       );
+
+      // Send email verification
+      await sendEmailVerification(users.user);
+      setEmailSent(true);
 
       // Create User object
       const user = {
@@ -81,10 +89,10 @@ const SignUp = () => {
 
   return (
     <>
-      {confirmModal && (
+      {confirmModal && emailSent && (
         <ConfirmModalBox
           title="Sign-Up Successful!"
-          description="account has been created. Welcome aboard!"
+          description="A verification email has been sent to your inbox. Please verify your email to complete the sign-up process."
           onClose={handleConfirmModal}
           redirect={handleRedirect}
           userName={userSignup.name || "Your"}

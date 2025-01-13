@@ -3,6 +3,7 @@ import { collection, onSnapshot, query, where } from "firebase/firestore";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import Logo from "../../assets/images/svg/aCart-Logo.svg";
 import ConfirmModalBox from "../../components/confirmModalBox/ConfirmModalBox";
 import CustomButton from "../../components/customButton/CustomButton";
@@ -66,7 +67,7 @@ const Login = () => {
       return () => unsubscribe();
     } catch (error) {
       console.error("Error during login:", error);
-      alert("Login failed. Please check your credentials.");
+      toast("Login failed. Please check your credentials.");
       setLoading(false);
     }
   };
