@@ -4,6 +4,7 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import Home from "./pages/home/Home";
 import NoPage from "./pages/noPage/NoPage";
 import ProductInfo from "./pages/productInfo/ProductInfo";
+import ForgotPassword from "./pages/registration/ForgotPassword";
 import Login from "./pages/registration/Login";
 import SignUp from "./pages/registration/SignUp";
 import Shop from "./pages/shop/Shop";
@@ -21,6 +22,7 @@ function App() {
           <Route path="/productInfo/:id" element={<ProductInfo />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route
             path="/user-dashboard"
             element={

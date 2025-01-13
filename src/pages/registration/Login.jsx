@@ -74,8 +74,21 @@ const Login = () => {
   const handlePasswordToggle = () => {
     setShowPassword((prev) => !prev);
   };
-  console.log("confirmModal", confirmModal);
 
+  // const handleForgotPassword = async () => {
+  //   if (useLogin.email === "") {
+  //     return alert("Please enter your email address");
+  //   }
+  //   setLoading(true);
+  //   try {
+  //     await sendPasswordResetEmail(auth, useLogin.email);
+  //     alert("Password reset email sent! Please check your inbox.");
+  //   } catch (error) {
+  //     console.log(error);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
   return (
     <>
       <div className="login-container">
@@ -121,7 +134,14 @@ const Login = () => {
                   <Eye className="eye" />
                 )}
               </span>
-              {/* <span className="forgot-password">Forgot Password?</span> */}
+              <span
+                className="forgot-password"
+                onClick={() => {
+                  navigation("/forgot-password");
+                }}
+              >
+                Forgot Password?
+              </span>
               <span>
                 <p>Don&apos;t have an account?</p>
                 <Link to="/signup">Sign Up</Link>
