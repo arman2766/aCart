@@ -71,8 +71,16 @@ button.next-button {
 }
 
 @media only screen and (max-width: 600px) {
+  .slide {
+    height: 138px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top;
+    position: relative;
+  }
   .slide .content {
     left: 0;
+    display: none;
   }
   .slide .content h1 {
     font-size: 31px;

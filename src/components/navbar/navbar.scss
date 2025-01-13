@@ -1,4 +1,5 @@
 @use "../../assets/styles/variables.scss" as *;
+
 .navbar-container {
   display: flex;
   flex-wrap: wrap;
@@ -6,11 +7,21 @@
   align-items: center;
   background: $gray100;
   padding: 0 64px;
+
+  .desktop-nav {
+    display: flex;
+  }
+  .mobile-menu-icon {
+    display: none;
+    cursor: pointer;
+  }
 }
+
 .user-cart-container {
   display: flex;
   gap: 32px;
   align-items: center;
+
   .user {
     cursor: pointer;
     display: flex;
@@ -18,8 +29,10 @@
     gap: 4px;
     justify-content: center;
   }
+
   .sign-up {
     cursor: pointer;
+
     span {
       display: flex;
       gap: 4px;
@@ -30,17 +43,19 @@
 .logo img {
   max-width: 250px;
 }
+
 .nav-list-items {
   display: flex;
   align-items: center;
   gap: 32px;
 }
+
 .nav-list-items li {
   font-family: poppins;
   font-size: 16px;
-
   list-style-type: none;
 }
+
 .nav-list-items a {
   text-decoration: none;
   color: $gray900;
@@ -49,4 +64,59 @@
 
 .nav-list-items a:hover {
   color: $primary900;
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar-container {
+    padding: 0 24px;
+    gap: 12px;
+
+    .desktop-nav {
+      display: none;
+    }
+
+    .mobile-menu-icon {
+      display: block;
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      z-index: 3;
+    }
+  }
+  .user-cart-container {
+    gap: 12px;
+    position: relative;
+    left: 82px;
+    top: -6px;
+  }
+
+  .mobile-menu {
+    position: absolute;
+    top: 63px;
+    left: 0;
+    width: 80%;
+    min-height: 100vh;
+    background: $gray100;
+    padding: 16px 24px;
+    z-index: 2;
+    .nav-list-items {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+
+      li {
+        font-size: 16px;
+        text-align: left;
+      }
+
+      a {
+        color: $gray900;
+
+        &:hover {
+          color: $primary900;
+        }
+      }
+    }
+  }
 }

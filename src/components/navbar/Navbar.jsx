@@ -1,10 +1,16 @@
-import { CircleUser, ShoppingCart } from "lucide-react";
+import { CircleUser, CircleX, ShoppingCart, Text } from "lucide-react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../assets/images/svg/aCart-Logo.svg";
 import { SearchBar } from "../searchBar/SearchBar";
 import "./navbar.scss";
 export const Navbar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigation = useNavigate();
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
 
   const navList = (
     <ul className="nav-list-items">
@@ -53,7 +59,7 @@ export const Navbar = () => {
             <img src={Logo} alt="logo" />
           </div>
         </Link>
-        <div className="nav-list">{navList}</div>
+        <div className="nav-list desktop-nav">{navList}</div>
         <SearchBar />
         <div className="user-cart-container">
           <span className="user" onClick={handleDashboard}>
@@ -71,7 +77,13 @@ export const Navbar = () => {
             <ShoppingCart />
           </span>
         </div>
+        {/* Hamburger Icon */}
+        <div className="mobile-menu-icon" onClick={toggleMobileMenu}>
+          {isMobileMenuOpen ? <CircleX /> : <Text />}
+        </div>
       </nav>
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && <div className="mobile-menu">{navList}</div>}
     </>
   );
 };
