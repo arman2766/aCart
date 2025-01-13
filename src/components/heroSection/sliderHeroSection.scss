@@ -69,3 +69,21 @@ button.next-button {
 .dot.active {
   background: $primary600;
 }
+
+@media only screen and (max-width: 600px) {
+  .slide .content {
+    left: 0;
+  }
+  .slide .content h1 {
+    font-size: 31px;
+    font-weight: 600;
+    line-height: 41px;
+  }
+  .slide .content p {
+    font-size: 14px;
+  }
+  button.next-button,
+  button.prev-button {
+    display: none;
+  }
+}

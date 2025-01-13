@@ -3,7 +3,6 @@ import { addDoc, collection, Timestamp } from "firebase/firestore";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import SignUpImg from "../../assets/images/jpg/login-img.jpg";
 import Logo from "../../assets/images/svg/aCart-Logo.svg";
 import ConfirmModalBox from "../../components/confirmModalBox/ConfirmModalBox";
 import CustomButton from "../../components/customButton/CustomButton";
@@ -146,9 +145,7 @@ const SignUp = () => {
               />
             </form>
           </div>
-          <div className="img">
-            <img src={SignUpImg} alt="" />
-          </div>
+          <div className="auth-image"></div>
         </div>
       </div>
     </>

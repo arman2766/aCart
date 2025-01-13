@@ -91,3 +91,10 @@ hr {
     }
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .product-card-container {
+    grid-template-columns: 1fr;
+    padding: 12px 24px;
+  }
+}

@@ -21,3 +21,9 @@
   font-size: 14px;
   line-height: 16px;
 }
+
+@media only screen and (max-width: 600px) {
+  .top-navbar-container {
+    display: none;
+  }
+}
