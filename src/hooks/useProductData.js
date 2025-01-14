@@ -18,7 +18,6 @@ const useProductData = (id) => {
         } else {
           const result = await fetchAllProducts();
           setData(result.products);
-          console.log("All products fetched:", result.products);
         }
       } catch (err) {
         setError(err);
