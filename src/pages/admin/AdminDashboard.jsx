@@ -18,6 +18,9 @@ import Logo from "../../assets/images/svg/aCart-Logo.svg";
 
 import { Tab, TabList, Tabs } from "react-tabs";
 
+import OrderDetails from "../../components/admin/OrderDetails";
+import ProductDetails from "../../components/admin/ProductDetails";
+import UsersDetails from "../../components/admin/UsersDetails";
 import CustomButton from "../../components/customButton/CustomButton";
 import { handleSignOut } from "../../utility/authUtils";
 import { user } from "../../utility/userAdminData";
@@ -32,17 +35,17 @@ const AdminDashboard = () => {
     {
       title: "Total Product",
       icon: <FolderKanban />,
-      content: <p>Here is the content for Total Product.</p>,
+      component: <ProductDetails />,
     },
     {
       title: "Total Users",
       icon: <Users />,
-      content: <p>Here is the content for Total Users.</p>,
+      component: <UsersDetails />,
     },
     {
       title: "Orders",
       icon: <ListOrdered />,
-      content: <p>Here is the content for Orders.</p>,
+      component: <OrderDetails />,
     },
   ];
 
@@ -98,18 +101,18 @@ const AdminDashboard = () => {
               <div className="user-info-container">
                 <span className="user-icon">
                   <User2Icon />
-                  <span>{user.name}</span>
+                  <span>{user?.name}</span>
                 </span>
                 <span>
                   <MailMinus />
-                  {user.email}
+                  {user?.email}
                 </span>
                 <span>
                   <ShieldCheck />
-                  {user.role}
+                  {user?.role}
                 </span>
                 <span>
-                  <CalendarCheck /> {user.date}
+                  <CalendarCheck /> {user?.date}
                 </span>
               </div>
             </SubMenu>
@@ -137,7 +140,7 @@ const AdminDashboard = () => {
       <main>
         <div className="header-container">
           <span>
-            <h2>Hello, {user.name}</h2>
+            <h2>Hello, {user?.name}</h2>
             <p>Today is {formattedDate}</p>
           </span>
           <span>
@@ -155,7 +158,9 @@ const AdminDashboard = () => {
             </div>
           ))}
         </div>
-        <div className="tab-content">{tabContent[activeTabIndex].content}</div>
+        <div className="tab-content">
+          {tabContent[activeTabIndex].component}
+        </div>
       </main>
     </div>
   );
